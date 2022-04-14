@@ -1,7 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
-import cors from 'cors';
 
 import connectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/error.js';
@@ -51,7 +50,6 @@ const allowCrossDomain = function(req, res, next) {
 app.use(notFound);
 app.use(errorHandler);
 app.use(allowCrossDomain);
-app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 app.listen(
