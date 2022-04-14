@@ -1,0 +1,46 @@
+{
+  "name": "postrequest",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "npm run server"
+  },
+  "author": "Harith Zahid",
+  "license": "ISC",
+  "dependencies": {
+    "@turf/bbox": "^6.5.0",
+    "@turf/bbox-polygon": "^6.5.0",
+    "@turf/boolean-point-in-polygon": "^6.5.0",
+    "@turf/helpers": "^6.5.0",
+    "@turf/point-on-feature": "^6.5.0",
+    "@turf/random": "^6.5.0",
+    "axios": "^0.23.0",
+    "bcryptjs": "^2.4.3",
+    "dayjs": "^1.11.0",
+    "dotenv": "^10.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.2.0",
+    "install": "^0.13.0",
+    "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.0.8",
+    "mongoose-paginate-v2": "^1.6.3",
+    "morgan": "^1.10.0",
+    "node-fetch": "^3.2.3",
+    "npm": "^8.6.0",
+    "slugid": "^3.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.2",
+    "eslint": "^8.11.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.4.1",
+    "pretty-quick": "^3.1.1"
+  }
+}
