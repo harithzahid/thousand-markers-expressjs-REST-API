@@ -1,6 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
+import cors from 'cors';
+
 import connectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/error.js';
 import mapRoutes from './routes/map.js';
@@ -31,6 +33,7 @@ app.get('/', (req, res) => {
 // Middlewares
 app.use(notFound);
 app.use(errorHandler);
+app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 app.listen(
