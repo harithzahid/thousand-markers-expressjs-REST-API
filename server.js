@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
+import cors from 'cors';
 
 import connectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/error.js';
@@ -30,6 +31,7 @@ app.get('/', (req, res) => {
 });
 
 // Middlewares
+app.use(cors());
 app.all('*', function(req, res, next) {
    res.header("Access-Control-Allow-Origin", "*");
    res.header("Access-Control-Allow-Headers", "X-Requested-With");
