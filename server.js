@@ -30,26 +30,13 @@ app.get('/', (req, res) => {
 });
 
 // Middlewares
-app.use(express.methodOverride());
-
-// ## CORS middleware
-//
-const allowCrossDomain = function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-
-  // intercept OPTIONS method
-  if ('OPTIONS' == req.method) {
-    res.send(200);
-  }
-  else {
-    next();
-  }
-};
+app.all('*', function(req, res, next) {
+   res.header("Access-Control-Allow-Origin", "*");
+   res.header("Access-Control-Allow-Headers", "X-Requested-With");
+   next();
+});
 app.use(notFound);
 app.use(errorHandler);
-app.use(allowCrossDomain);
 
 const PORT = process.env.PORT || 5000;
 app.listen(
