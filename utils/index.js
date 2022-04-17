@@ -1,14 +1,8 @@
 import bbox from '@turf/bbox-polygon';
 
-
 export function randomDate(start, end) {
   return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 }
-
-export const loremIpsum = `
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Cras sed felis eget velit aliquet sagittis. Nisl nunc mi ipsum faucibus vitae aliquet.
-`;
 
 export function getRandomValues(list) {
   const randName = [];
