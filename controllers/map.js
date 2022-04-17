@@ -13,22 +13,20 @@ const getMarkers = asyncHandler(async (req, res) => {
     const poly = getPolygonBetweenTwoPoints(currentBounds);
     const infoPath = userType === USER_TYPE.OWNER ? 'projectInfo' : 'contractorInfo';
     const coordinatesPath = infoPath + '.coordinates';
-    const users = await User.find({ type: userType }, `id, ${coordinatesPath}`);
+    const users = await User.aggregate([
+      { $match: { type: userType }},
+      { $project: { id: '$_id', coordinates: '$' + coordinatesPath } }
+    ])
     const selectedUsers = users.filter((item) => {
-      const coordinates = item[infoPath].coordinates;
+      const { coordinates } = item;
       return booleanPointInPolygon(
         point([coordinates[0], coordinates[1]]),
         poly
       )
     });
 
-    const trimmedSelectedUsers = selectedUsers.map((item) => ({
-      id: item.id,
-      coordinates: item[infoPath].coordinates
-    }))
-
     if (selectedUsers) {
-      res.status(200).send(trimmedSelectedUsers);
+      res.status(200).send(selectedUsers);
     } else {
       res.status(500);
       throw new Error(

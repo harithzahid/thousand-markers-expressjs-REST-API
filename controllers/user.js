@@ -6,8 +6,8 @@ import fetch from 'node-fetch';
 import _ from 'lodash';
 
 import User from '../models/user.js';
-import { JOB, USER_TYPE } from '../utils/constants.js';
-import { randomDate, loremIpsum, getRandomValues, getPolygonBetweenTwoPoints } from '../utils/index.js';
+import { JOB, USER_TYPE, LOREM_IPSUM } from '../utils/constants.js';
+import { randomDate, getRandomValues, getPolygonBetweenTwoPoints } from '../utils/index.js';
 
 const getUser = asyncHandler(async (req, res) => {
   try {
@@ -131,7 +131,7 @@ const generateFakeUsers = asyncHandler(async (bbox) => {
           type: USER_TYPE.OWNER,
           projectInfo: {
             title: 'Need helps moving stuff.',
-            description: loremIpsum,
+            description: LOREM_IPSUM,
             address: {
               street_address: geocodingAddress.district,
               city: geocodingAddress.place,

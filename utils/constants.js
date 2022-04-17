@@ -38,3 +38,8 @@ export const CLIENT_APP_BASE_URL =
     : process.env.NODE_ENV === NODE_ENVIRONMENTS.STAGING
     ? process.env.SITE_BASE_URL_STAGING
     : process.env.SITE_BASE_URL_PRODUCTION;
+
+export const LOREM_IPSUM = `
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Cras sed felis eget velit aliquet sagittis. Nisl nunc mi ipsum faucibus vitae aliquet.
+`;
